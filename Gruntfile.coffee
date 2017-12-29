@@ -6,7 +6,12 @@ module.exports = (grunt) =>
       options:
         stats: !process.env.NODE_ENV || process.env.NODE_ENV is 'development'
       prod: webpackConfig
-      dev: Object.assign({ watch: true }, webpackConfig)
+      dev: Object.assign({ 
+        watch: true,
+        watchOptions: {
+          ignored: 'dist/**',
+        },
+      }, webpackConfig)
   }
 
   grunt.loadNpmTasks 'grunt-webpack'
