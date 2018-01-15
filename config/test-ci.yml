@@ -1,0 +1,11 @@
+mysql:
+  master:
+    host: localhost
+    id: root
+    password: 
+    scheme: 
+  slave:
+    host: localhost
+    id: root
+    password: 
+    scheme: 

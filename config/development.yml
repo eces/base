@@ -1,0 +1,32 @@
+static:
+  domain: 
+
+mysql:
+  master:
+    host: localhost
+    id: root
+    password: 
+    scheme: soran
+  slave:
+    host: localhost
+    id: root
+    password: 
+    scheme: soran
+
+redis:
+  master:
+    host: localhost
+    port: 6379
+
+domain:
+  protocol: 'http://'
+  port: ':9700'
+  wildcard: .lvh.me
+  base: lvh.me
+  api: api.lvh.me
+  cs: app.lvh.me
+  ws: ws://127.0.0.1:9005
+  ws_http: http://127.0.0.1:9005
+
+queue:
+  notify-message: 

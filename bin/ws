@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+global.__absolute = require('../absolute.js')
+global.config = require('config')
+
+const ws = require('../ws.js')
+
+ws(9005)

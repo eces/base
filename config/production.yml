@@ -1,0 +1,32 @@
+static:
+  domain: 'https://static.soran.io'
+
+mysql:
+  master:
+    host: 
+    id: 
+    password: 
+    scheme: 
+  slave:
+    host: 
+    id: 
+    password: 
+    scheme: 
+
+redis:
+  master:
+    host: 
+    port: 6379
+
+domain:
+  protocol: 'https://'
+  port: ''
+  wildcard: .soran.io
+  base: soran.io
+  api: api.soran.io
+  cs: app.soran.io
+  ws: wss://soran.io
+  ws_http: https://soran.io
+
+queue:
+  notify-message: 
