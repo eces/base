@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= htmlWebpackPlugin.options.title
+    //- each css in htmlWebpackPlugin.files.css
+    //-   link(rel="stylesheet" href=css)
+    //- - require('!style-loader!css-loader!sass-loader!./s1.sass')
+    link(rel="stylesheet" href='https://unpkg.com/semantic-ui@2.2.13/dist/semantic.css')
+  body
+    pre= JSON.stringify(htmlWebpackPlugin.files, null, '  ')
+    .ui.container
+      h1 Welcome
+      
+      .ui.floating.message
+        p 예전에 10년 넘게 하나의 스피커를 써왔다. 처음으로 돈주고 산 스피커였는데 2.1채널이었고 되게 플랫한 특징을 가지고 있었다. 그러다 3년전 쯤이었나 음악을 듣는 장소, 패턴, 편의성 때문에 보스 사운드링크 미니2(Bose soundlink mini 2)로 바꾸었다. 이 스피커는 플랫하지 않았으며 큰 특징으로는 재즈, 라운드, 알앤비 음악을 매력적인 음색으로 재해석해서 들려주는게 참 신기했다.
+        p 쓰다보니 블루투스(무선)이 정말 편했으나 외부로 가지고 나가는 일이 별로 없었다. 크기에 비해서 큰 음량을 내주었지만 여전히 아쉬움이 있어서 유선 스피커로 바꾸었다. 하만카돈 오라 스튜디오 2(Harman Kardon Aura Studio 2)가 다음 선택지였다. 역시나 JBL 느낌처럼 플랫하고 군더더기 없는 디자인, 조작법, 연결 다 만족스러웠다. 처음에 조금 놀랐는데, 저음이 너무나 풍부하고 따뜻한 느낌이었다. 고음 또한 원래 유닛 스피커에 트위터가 달려있던 2.1채널과 비교해도 매력적이었다. 쓰다가 중반쯤에 보스의 음색이 그리워져서 EQ도 설정하고 노력을 해보았는데 아무리해도 잘 안된다. Boom 2도 써보고 별걸 다 해보았는데 아쉬움이 생겼다.
+      
+      div(ng-cloak ng-controller='index')
+        span.ui.label(ng-bind='hello')
+        hr.ui.divider
+        span.ui.label.blue {{hello}}
+        input.ui.input(type='text' ng-model='hello')

@@ -16,7 +16,7 @@ module.exports = (grunt) =>
         script: 'bin/base'
         options:
           cwd: __dirname
-          ignore: [ 'node_modules/**', 'dist/**' ]
+          ignore: [ 'node_modules/**', 'dist/**', 'src/**', 'webpack.*.js' ]
           ext: 'js,yml'
           watch: [
             'routes/**/*.js'
@@ -28,7 +28,7 @@ module.exports = (grunt) =>
         script: 'bin/ws'
         options:
           cwd: __dirname
-          ignore: [ 'node_modules/**', 'dist/**' ]
+          ignore: [ 'node_modules/**', 'dist/**', 'src/**', 'webpack.*.js' ]
           ext: 'js,yml'
           watch: [
             'routes/**/*.js'
@@ -37,17 +37,18 @@ module.exports = (grunt) =>
             '*.js'
           ]
     
-    watch:
-      server:
-        files: [
-          'views/**/*.pug'
-        ]
-        options:
-          livereload: true
+    # watch:
+    #   server:
+    #     files: [
+    #       'views/**/*.pug'
+    #     ]
+    #     options:
+    #       livereload: true
 
     concurrent:
       debug:
-        tasks: [ 'nodemon:base', 'nodemon:ws', 'watch', 'webpack:prod' ]
+        # tasks: [ 'nodemon:base', 'nodemon:ws', 'watch', 'webpack:prod' ]
+        tasks: [ 'nodemon:base', 'nodemon:ws', 'webpack:dev' ]
         options:
           logConcurrentOutput: true
     

@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.set('json spaces', 2)
 }
 
-app.use('/dist', serveStatic('./dist'))
+// app.use('/dist', serveStatic('./dist'))
 
 app.use(cors({
   credentials: true,

@@ -1,4 +1,14 @@
 h1 
-  color: #333
-  // color: tomato
+  // color: #333
+  color: tomato
   // color: royalblue
+
+.async
+  opacity: 0 !important
+  // transition: all 150ms ease-in-out !important
+  &.done
+    opacity: 1 !important
+    transition: all 150ms ease-in-out !important
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+  display: none !important
