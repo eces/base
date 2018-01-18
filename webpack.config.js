@@ -4,27 +4,35 @@ const path = require('path')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+// const extractCSS = new ExtractTextPlugin({filename: 'css.bundle.css'})
+// const extractSASS = new ExtractTextPlugin({ filename: 'sass.[chunkhash].css'})
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    main_css: './src/s1.sass',
+    landing: './src/landing.js',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new ExtractTextPlugin({
+      filename: '[name].[hash].css',
+      allChunks: true,
+    }),
     new HtmlWebpackPlugin({
       title: 'Index',
-      filename: 'index.html',
-      template: 'src/welcome.pug',
-      files: {
-        css: ['[name].[chunkhash].css'],
-        chunks: {
-          head: {
-            entry: '',
-            css: '[name].[chunkhash].css',
-          }
-        }
-      }
+      filename: 'landing.html',
+      template: 'src/landing.pug',
+      // files: {
+      //   css: ['[name].[chunkhash].css'],
+      //   chunks: {
+      //     head: {
+      //       entry: '',
+      //       css: '[name].[chunkhash].css',
+      //     }
+      //   }
+      // }
+
       // template: 'src/welcome.html',
       // inject: false,
       // template: require('html-webpack-template'),
@@ -79,7 +87,7 @@ module.exports = {
     // new webpack.HotModuleReplacementPlugin()
   ],
   output: {
-    filename: '[name].[chunkhash].[ext]',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -93,11 +101,12 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ]
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+        // use: [
+        //   'style-loader',
+        //   'css-loader',
+        //   'sass-loader',
+        // ]
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
